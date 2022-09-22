@@ -2,3 +2,4 @@ export { Button } from "./Button";
 export { Card } from "./Card";
 export { default as Input } from "./Input";
 export { Text } from "./Text";
+export { InputField } from "./InputField";

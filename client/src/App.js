@@ -1,12 +1,12 @@
 import React from "react";
-import { Login } from "./pages";
+import { Registration } from "./pages";
 import GlobalStyle from "./globalStyles";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Login></Login>
+      <Registration></Registration>
     </>
   );
 }

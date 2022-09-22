@@ -1,9 +1,10 @@
 import { React, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { Container, Text, InputField, Button } from "../../components";
+import { Container } from "../../globalStyles";
+import { Text, InputField, Button, Card } from "../../components";
 
-export const StyledFieldSet = styled.fieldset`
+const FieldSet = styled.fieldset`
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
@@ -21,7 +22,7 @@ export const StyledFieldSet = styled.fieldset`
   }
 `;
 
-export const Select = styled.select`
+const Select = styled.select`
   background-color: #eee;
   color: #555;
   height: 40px;
@@ -31,7 +32,6 @@ export const Select = styled.select`
 `;
 
 export const Registration = () => {
-  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     password: "",
@@ -60,21 +60,18 @@ export const Registration = () => {
       permanentAddress: data.permanentAddress,
     };
 
-    console.log(formData);
-
-    axios.post("http://localhost/betterlife/", formData).then((result) => {
-      if (result.data.Status === "invalid") {
-        alert("invalid user.");
-      } else {
-        console.log("submission successful");
-        navigate("/log-in/patient");
-      }
+    fetch("http://localhost:8000/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
     });
+
+    console.log(formData);
   };
 
   return (
     <Container>
-      <StyledCard>
+      <Card className="big">
         <form onSubmit={submitForm}>
           <Text className="title">Sign Up</Text>
           <label htmlFor="">
@@ -113,7 +110,7 @@ export const Registration = () => {
                 Gender
               </option>
               <option value="Male">Male</option>
-              <option value="Femal">Female</option>
+              <option value="Female">Female</option>
               <option value="Other">Other</option>
             </Select>
           </FieldSet>
@@ -172,7 +169,7 @@ export const Registration = () => {
             Sign Up
           </Button>
         </form>
-      </StyledCard>
+      </Card>
     </Container>
   );
 };

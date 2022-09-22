@@ -12,6 +12,9 @@ const StyledCard = styled.div`
   background: #eee;
   border-radius: 10px;
   box-shadow: ${v.neuMorphicOuter};
+  .bid {
+    max-width: 800px;
+  }
 `;
 
 export const Card = ({ className, children }) => {
