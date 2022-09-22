@@ -7,12 +7,12 @@ const StyledButton = styled.button`
   white-space: nowrap;
   padding: 4px 30px;
   margin: 5px 10px;
-  color: ${v.primaryTextColor};
+  color: ${v.secondaryElementColor};
   font-size: 18px;
   font-weight: 600;
   outline: none;
-  border: 2px solid ${v.primaryTextColor};
-  border-radius: 100px;
+  border: 2px solid ${v.secondaryElementColor};
+  border-radius: 10px;
   cursor: pointer;
   &.primary {
     background-color: ${v.primaryTextColor};
@@ -25,7 +25,7 @@ const StyledButton = styled.button`
   }
   &:hover {
     transition: all 0.3s ease-out;
-    background: ${v.primaryTextColor};
+    background: ${v.secondaryElementColor};
     color: ${v.primaryBGcolor};
   }
   @media screen and (max-width: 960px) {
