@@ -14,6 +14,6 @@ const StyledCard = styled.div`
   box-shadow: ${v.neuMorphicOuter};
 `;
 
-export const Card = ({ children }) => {
-  return <StyledCard>{children}</StyledCard>;
+export const Card = ({ className, children }) => {
+  return <StyledCard className={className}>{children}</StyledCard>;
 };
