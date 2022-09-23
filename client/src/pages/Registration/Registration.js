@@ -36,37 +36,31 @@ export const Registration = () => {
     name: "",
     password: "",
     date: "",
-    gender: "",
-    blood: "",
+    gender: "Male",
+    blood: "A+",
     email: "",
     tel: "",
-    presentAddress: "",
-    permanentAddress: "",
+    address: "",
   });
+
+  //gets data from the fields and sets in data object
   const handleSubmit = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
   const submitForm = async (e) => {
     e.preventDefault();
-    const formData = {
-      name: data.name,
-      password: data.password,
-      date: data.date,
-      gender: data.gender,
-      blood: data.blood,
-      email: data.email,
-      tel: data.tel,
-      presentAddress: data.presentAddress,
-      permanentAddress: data.permanentAddress,
-    };
 
-    fetch("http://localhost:8000/api/register", {
+    const response = await fetch("http://localhost:8000/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
 
-    console.log(formData);
+    const responseData = await response.json();
+
+    console.log(JSON.stringify(data));
+    console.log(responseData);
   };
 
   return (
@@ -155,7 +149,7 @@ export const Registration = () => {
           </label>
           <InputField
             type="text"
-            name="presentAddress"
+            name="address"
             onChange={handleSubmit}
             value={data.presentAddress}
           />
